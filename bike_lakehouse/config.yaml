@@ -1,0 +1,23 @@
+source_systems:
+  crm:
+    tables:
+      - cust_info
+      - prd_info
+      - sales_details
+    
+  erp:
+    tables:
+      - CUST_AZ12
+      - LOC_A101
+      - PX_CAT_G1V2
+
+bronze:
+  source_path: "/Volumes/bike_lakehouse/bronze/source_systems"
+  catalog: "bike_lakehouse"
+  schema: "bronze"
+
+  
+load_options:
+  header: true
+  inferSchema: true
+  write_mode: overwrite
