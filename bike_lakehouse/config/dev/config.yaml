@@ -11,11 +11,11 @@ source_systems:
   erp:
     tables:
       CUST_AZ12:
-        mode: overwrite
+        load_mode: overwrite
       LOC_A101:
-        mode: overwrite
+        load_mode: overwrite
       PX_CAT_G1V2:
-        mode: overwrite
+        load_mode: overwrite
 
 bronze:
   source_path: "/Volumes/bike_lakehouse/bronze/source_systems"

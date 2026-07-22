@@ -1,0 +1,5 @@
+postgresqL:
+  username: "neondb_owner"
+  password: "npg_MU9f0FxKVeDo"
+  host: "ep-rapid-darkness-a5qejnez-pooler.us-east-2.aws.neon.tech"
+  database: "neondb"
