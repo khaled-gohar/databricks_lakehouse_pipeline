@@ -2,6 +2,9 @@
 
 ### End-to-End Data Engineering Pipeline with Neon PostgreSQL & Databricks
 
+> 🎯 **Business Objective**  
+> Provide a centralized analytical view of bike retail sales performance by transforming CRM and ERP data into a trusted Lakehouse model, enabling analysis of **sales trends, product performance, and customer behavior**.
+
 An end-to-end **Lakehouse data engineering project** built with **Neon PostgreSQL, Databricks, PySpark, Delta Lake, and Unity Catalog**.
 
 The project implements a **Bronze → Silver → Gold Medallion Architecture**, transforming raw PostgreSQL data into analytics-ready dimensional models.
