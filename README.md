@@ -113,6 +113,80 @@ Neon PostgreSQL
 
 ---
 
+# ⚙️ Configuration & Environment Management
+
+The project separates **environment-specific configuration** from **credentials and sensitive information** to keep the pipeline easier to maintain across development and production environments.
+
+### 🗂️ YAML Configuration
+
+Pipeline configuration is managed through **YAML files**, with separate configurations for different environments:
+
+```text
+config/
+├── dev/
+│   └── config.yaml
+└── prod/
+    └── config.yaml
+```
+
+The YAML configuration is used to define environment-specific settings such as:
+
+* 🗄️ Catalog and schema names
+* 📋 Source and target table configuration
+* 🔄 Load behavior
+* ⚙️ Pipeline parameters
+* 🌍 Environment-specific settings
+
+This allows the same pipeline code to be used across environments while changing configuration rather than modifying the application logic.
+
+### 🔐 Environment Variables
+
+Sensitive values are kept outside the source code using a `.env` file.
+
+Examples include:
+
+```text
+DB_HOST
+DB_PORT
+DB_NAME
+DB_USER
+DB_PASSWORD
+```
+
+The `.env` file is **not committed to GitHub** and should be included in `.gitignore.
+
+This separation provides a simple structure:
+
+```text
+                 ┌─────────────────────┐
+                 │   Pipeline Code     │
+                 │   Python / PySpark  │
+                 └──────────┬──────────┘
+                            │
+              ┌─────────────┴─────────────┐
+              ▼                           ▼
+       ┌──────────────┐             ┌──────────────┐
+       │ YAML Config  │             │ Environment  │
+       │              │             │ Variables    │
+       │ DEV / PROD   │             │ Credentials  │
+       └──────────────┘             └──────────────┘
+```
+
+### 🔒 Security Principle
+
+The project follows a simple separation of concerns:
+
+| Configuration Type         | Stored In                  | Examples                               |
+| -------------------------- | -------------------------- | -------------------------------------- |
+| 🛠️ Pipeline configuration | YAML                       | Catalog, schema, tables, load settings |
+| 🌍 Environment settings    | YAML                       | DEV / PROD-specific values             |
+| 🔑 Credentials             | `.env` / secret management | Username, password, connection details |
+| 💻 Transformation logic    | Python / PySpark           | Ingestion and transformation code      |
+
+> **Important:** `.env` files containing credentials should never be committed to version control. In a deployed Databricks environment, sensitive credentials should be managed through an appropriate secret-management mechanism.
+
+---
+
 # 🥉 Bronze Layer
 
 The Bronze layer is responsible for ingesting data from the **Neon PostgreSQL source database**.
