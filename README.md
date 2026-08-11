@@ -371,7 +371,7 @@ The pipeline can be executed using **Databricks Jobs**, with the different stage
 ### 📸 Databricks Job
 
 <p align="center">
-  <img src="docs/images/databricks-job.png" alt="Databricks Job Workflow" width="900"/>
+  <img src="[docs/images/databricks-job.png](https://github.com/khaled-gohar/databricks_lakehouse_pipeline/blob/main/bike_lakehouse/docs/images/databricks-job.png.png)" alt="Databricks Job Workflow" width="900"/>
 </p>
 
 > **Databricks Job showing the pipeline workflow and task dependencies.**
