@@ -374,6 +374,9 @@ The pipeline can be executed using **Databricks Jobs**, with the different stage
   <img src="docs/images/databricks-job.png" alt="Databricks Job Workflow" width="900"/>
 </p>
 
+![Databricks Job Workflow](docs/images/databricks-job.png)
+
+
 > **Databricks Job showing the pipeline workflow and task dependencies.**
 
 ---
