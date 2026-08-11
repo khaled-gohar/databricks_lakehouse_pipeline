@@ -1,9 +1,10 @@
 import sys
+
+sys.path.append("/Workspace/Users/kahledtrojan@gmail.com/databricks_lakehouse_pipeline_de/bike_lakehouse")
+
 from src.utils.path_utils import add_project_root_to_path
 
 add_project_root_to_path()
-
-sys.path.append("/Workspace/Users/kahledtrojan@gmail.com/databricks_lakehouse_pipeline_de/bike_lakehouse")
 
 from pyspark.sql.functions import current_timestamp, lit
 from src.utils.config_reader import read_config
@@ -29,7 +30,7 @@ def load_to_bronze(tables,source_system,config):
             spark.read
             .jdbc(
                 url=jdbc_url,
-                table=F"{source_system}_{table}",
+                table=f"{source_system}_{table}",
                 properties=properties
             )
         )
